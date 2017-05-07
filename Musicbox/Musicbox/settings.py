@@ -37,7 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Modules.Landing'
+    'rest_framework',
+    'django_filters',
+    'modules.Landing',
+    'modules.Users',
+    'modules.Songs',
+    'modules.Artists',
+    'modules.Albums',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +82,12 @@ WSGI_APPLICATION = 'Musicbox.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'musicbox_db',
+        'USER': 'musicbox_admin',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -123,3 +133,5 @@ STATICFILES_DIRS = [os.path.join(os.getcwd(),'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.getcwd(),'media')
+
+AUTH_USER_MODEL = "Users.User"
