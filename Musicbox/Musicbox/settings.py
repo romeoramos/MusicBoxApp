@@ -135,3 +135,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.getcwd(),'media')
 
 AUTH_USER_MODEL = "Users.User"
+
+CATEGORIES = {
+("ROC","Rock"),
+("POP","Pop"),
+("MET","Metal"),
+("ALT","Alternative"),
+("ClA","Classical"),
+("LAT","Latin"),
+("COU","Country"),
+("FOL","Folklore"),
+("ELE","Electronic"),
+("RNB","R&B-Soul"),
+    }

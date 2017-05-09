@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
-#from modules.Songs.models import Song
+from modules.Songs.models import Song
 
 
 class UserManager(BaseUserManager, models.Manager):
@@ -38,12 +38,12 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
     phone = models.CharField(max_length=22)
     email = models.EmailField(unique=True, max_length=50)
     sex = models.CharField(choices=(('F','Female'),('M','Male')), max_length=16,blank=True)
-    #library = models.ManyToManyField(Song,blank=True)
+    library = models.ManyToManyField(Song,blank=True)
 
     # intermediario entre trans de cada modelo, object managaer de cada modelo
     objects = UserManager()
 
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
