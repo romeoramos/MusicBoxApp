@@ -7,8 +7,8 @@ class Artist(models.Model):
     name = models.CharField(max_length=100)
     nationality = models.CharField(max_length=50)
     bio = models.TextField()
-    category = category = models.CharField(max_length=100,choices=settings.CATEGORIES)
-    user_creator =models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.SET_NULL)
+    category = models.CharField(max_length=100,choices=settings.CATEGORIES)
+    user_creator = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -5,6 +5,8 @@ from django.conf import settings
 
 # Create your models here.
 
+def song_directory_path(filename):
+    return 'songs/{0}'.format(filename)
 
 class Song(models.Model):
     id = models.AutoField(primary_key=True)
@@ -15,13 +17,13 @@ class Song(models.Model):
     cover = models.URLField(blank=True,null=True)
     rating = models.IntegerField()
     category = models.CharField(max_length=100,choices=settings.CATEGORIES)
-    song_file = FileField(uploadto="filename")
-    user_creator =models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.SET_NULL)
+    song_file = models.FileField(upload_to=song_directory_path)
+    user_creator = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
-class Comments(models.Model):
+class Comment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     song = models.ForeignKey(Song,on_delete=models.CASCADE,related_name='song_comments')
-    comment = models.TextField()
+    user_comment = models.TextField()
