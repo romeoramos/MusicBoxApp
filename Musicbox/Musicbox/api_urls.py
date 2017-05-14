@@ -7,7 +7,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^artists/', include("modules.Artists.urls")),
-    #url(r'^books/', include("modules.books.urls")),
+    url(r'^songs/', include("modules.Songs.urls")),
+    url(r'^albums/', include("modules.Albums.urls")),
     #url(r'^auth/', obtain_jwt_token),
     #url(r'^auth/refresh', refresh_jwt_token),
     #url(r'^auth/verify', verify_jwt_token),

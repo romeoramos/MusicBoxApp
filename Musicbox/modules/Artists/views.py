@@ -4,11 +4,8 @@ from .models import Artist
 from .serializers import ArtistSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
-#from rest_framework.parsers import FormParser,MultiPartParser
-#from rest_framework.response import Response
 from django.conf import settings
 import django_filters.rest_framework
-# Create your views here.
 
 class ListArtist(generics.ListCreateAPIView):
 
