@@ -5,7 +5,7 @@ from django.conf import settings
 
 # Create your models here.
 
-def song_directory_path(filename):
+def song_directory_path(intance,filename):
     return 'songs/{0}'.format(filename)
 
 class Song(models.Model):
